@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <LinearLayout
+        android:layout_width="409dp"
+        android:layout_height="729dp"
+        android:layout_marginEnd="1dp"
+        android:foregroundTint="#E40A0A"
+        android:gravity="start"
+        android:orientation="vertical"
+        android:outlineAmbientShadowColor="#E70707"
+        android:outlineSpotShadowColor="#C50F0F"
+        app:layout_constraintEnd_toEndOf="parent"
+        tools:layout_editor_absoluteY="1dp">
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="match_parent"
+            android:layout_height="88dp"
+            android:background="#477D9B"
+            android:text="Rejestruj konto"
+            android:textAlignment="gravity"
+            android:textColor="#FFFFFF"
+            android:textSize="50sp" />
+
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:text="Podaj e-mail:"
+            android:textColor="#8C8787"
+            android:textSize="16sp" />
+
+        <EditText
+            android:id="@+id/editTextText3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="text"
+            android:text="ewa@poczta.pl"
+            tools:text="ewa@poczta.pl" />
+
+        <TextView
+            android:id="@+id/textView3"
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:text="Podaj hasło:"
+            android:textColor="#8C8787"
+            android:textSize="16sp" />
+
+        <EditText
+            android:id="@+id/editTextTextPassword"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="textPassword" />
+
+        <TextView
+            android:id="@+id/textView4"
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:text="Powtórz hasło"
+            android:textColor="#8C8787"
+            android:textSize="16sp" />
+
+        <EditText
+            android:id="@+id/editTextTextPassword2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:foregroundTint="#DE0F0F"
+            android:inputType="textPassword"
+            android:outlineAmbientShadowColor="#DB1212"
+            android:textColor="#BA0C0C"
+            android:textColorHighlight="#B11515"
+            android:textColorHint="#C11313" />
+
+        <Button
+            android:id="@+id/button"
+            android:layout_width="142dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:backgroundTint="#A9A7A7"
+            android:gravity="center"
+            android:text="Zatwierdź"
+            android:textColor="#0B0909"
+            android:textColorLink="#999797" />
+
+        <TextView
+            android:id="@+id/textView6"
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:text="Witaj ewa@poczta.pl"
+            android:textAlignment="center"
+            android:textColor="#8C8787"
+            android:textSize="16sp" />
+
+    </LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
