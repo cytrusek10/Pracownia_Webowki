@@ -1,0 +1,111 @@
+@use '../styles/variables' as *;
+
+.header {
+  padding: $space-16 0 $space-12;
+}
+
+.title {
+  font-family: $font-display;
+  font-size: $text-5xl;
+  font-weight: 900;
+  color: $white;
+  margin-bottom: $space-2;
+}
+
+.sub {
+  font-size: $text-base;
+  color: $mist;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: $space-6;
+  padding-bottom: $space-24;
+
+  @media (max-width: $bp-lg) { grid-template-columns: repeat(2, 1fr); }
+  @media (max-width: $bp-sm) { grid-template-columns: 1fr; }
+}
+
+.card {
+  background: $card;
+  border-radius: $radius-lg;
+  overflow: hidden;
+  border: 1px solid rgba($mist, 0.08);
+  transition: transform $transition-normal, box-shadow $transition-normal;
+
+  &:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 16px 40px rgba(0,0,0,0.4);
+  }
+
+  &__stripe {
+    height: 5px;
+    background: var(--cat);
+  }
+
+  &__body {
+    padding: $space-6;
+  }
+
+  &__head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: $space-3;
+  }
+
+  &__name {
+    font-family: $font-display;
+    font-size: $text-xl;
+    font-weight: 700;
+    color: $white;
+  }
+
+  &__count {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background: rgba(var(--cat), 0.15);
+    border: 1.5px solid var(--cat);
+    color: var(--cat);
+    font-size: $text-sm;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  &__desc {
+    font-size: $text-sm;
+    color: $mist;
+    margin-bottom: 1.25rem;
+    line-height: 1.6;
+  }
+
+  &__posts {
+    display: flex;
+    flex-direction: column;
+    gap: $space-2;
+    padding-top: $space-4;
+    border-top: 1px solid rgba($mist, 0.1);
+  }
+
+  &__post {
+    font-size: $text-sm;
+    color: rgba($light, 0.7);
+    line-height: 1.4;
+    transition: color $transition-fast;
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+
+    &::before {
+      content: '→ ';
+      color: var(--cat);
+    }
+
+    &:hover { color: $white; }
+  }
+}

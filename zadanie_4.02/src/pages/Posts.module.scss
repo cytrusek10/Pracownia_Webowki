@@ -1,0 +1,89 @@
+@use '../styles/variables' as *;
+
+.header {
+  padding: $space-16 0 $space-8;
+}
+
+.title {
+  font-family: $font-display;
+  font-size: $text-5xl;
+  font-weight: 900;
+  color: $white;
+  margin-bottom: $space-2;
+}
+
+.sub {
+  font-size: $text-base;
+  color: $mist;
+}
+
+.filters {
+  display: flex;
+  gap: $space-3;
+  flex-wrap: wrap;
+  margin-bottom: $space-12;
+  padding-bottom: $space-6;
+  border-bottom: 1px solid rgba($mist, 0.1);
+}
+
+.filter {
+  padding: $space-2 $space-4;
+  border-radius: $radius-full;
+  font-size: $text-sm;
+  font-weight: 500;
+  color: $mist;
+  border: 1px solid rgba($mist, 0.2);
+  background: transparent;
+  transition: all $transition-fast;
+
+  &:hover {
+    border-color: var(--cat, $accent);
+    color: var(--cat, $accent);
+  }
+
+  &--active {
+    background: var(--cat, $accent);
+    border-color: var(--cat, $accent);
+    color: $white;
+  }
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: $space-6;
+  padding-bottom: $space-24;
+
+  @media (max-width: $bp-lg) { grid-template-columns: repeat(2, 1fr); }
+  @media (max-width: $bp-sm) { grid-template-columns: 1fr; }
+}
+
+.searchWrap {
+  margin-bottom: 2rem;
+}
+
+.search {
+  width: 100%;
+  max-width: 480px;
+  padding: 0.75rem 1.25rem;
+  background: #1e2a4a;
+  border: 1px solid rgba(168, 178, 216, 0.2);
+  border-radius: 9999px;
+  color: #f0f4ff;
+  font-size: 0.875rem;
+  font-family: inherit;
+  outline: none;
+  transition: border-color 250ms ease;
+
+  &::placeholder { color: #a8b2d8; }
+  &:focus { border-color: #e94560; }
+}
+
+.error {
+  text-align: center;
+  padding: 3rem;
+  color: #e94560;
+  background: rgba(233, 69, 96, 0.1);
+  border-radius: 16px;
+  border: 1px solid rgba(233, 69, 96, 0.2);
+}

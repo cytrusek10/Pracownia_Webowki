@@ -1,0 +1,59 @@
+@use '../styles/variables' as *;
+
+.header {
+  padding: $space-16 0 $space-8;
+}
+
+.title {
+  font-family: $font-display;
+  font-size: $text-5xl;
+  font-weight: 900;
+  color: $white;
+  margin-bottom: $space-2;
+}
+
+.sub {
+  font-size: $text-base;
+  color: $mist;
+}
+
+.filters {
+  display: flex;
+  gap: $space-3;
+  flex-wrap: wrap;
+  margin-bottom: $space-12;
+  padding-bottom: $space-6;
+  border-bottom: 1px solid rgba($mist, 0.1);
+}
+
+.filter {
+  padding: $space-2 $space-4;
+  border-radius: $radius-full;
+  font-size: $text-sm;
+  font-weight: 500;
+  color: $mist;
+  border: 1px solid rgba($mist, 0.2);
+  background: transparent;
+  transition: all $transition-fast;
+
+  &:hover {
+    border-color: var(--cat, $accent);
+    color: var(--cat, $accent);
+  }
+
+  &--active {
+    background: var(--cat, $accent);
+    border-color: var(--cat, $accent);
+    color: $white;
+  }
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: $space-6;
+  padding-bottom: $space-24;
+
+  @media (max-width: $bp-lg) { grid-template-columns: repeat(2, 1fr); }
+  @media (max-width: $bp-sm) { grid-template-columns: 1fr; }
+}

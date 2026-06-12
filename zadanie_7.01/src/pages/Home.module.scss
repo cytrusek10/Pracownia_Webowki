@@ -1,0 +1,191 @@
+@use '../styles/variables' as *;
+
+// HERO
+.hero {
+  position: relative;
+  overflow: hidden;
+  padding: $space-24 0;
+
+  &__bg {
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse 80% 60% at 70% 50%, rgba($surface, 0.6) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  &__inner {
+    position: relative;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    gap: $space-16;
+    min-height: 480px;
+
+    @media (max-width: $bp-md) {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  &__eyebrow {
+    display: block;
+    font-size: $text-sm;
+    font-weight: 600;
+    color: $accent;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    margin-bottom: $space-4;
+  }
+
+  &__headline {
+    font-family: $font-display;
+    font-size: clamp(2.5rem, 6vw, 4rem);
+    font-weight: 900;
+    line-height: 1.1;
+    color: $white;
+    margin-bottom: $space-6;
+
+    em {
+      font-style: italic;
+      color: $accent;
+    }
+  }
+
+  &__sub {
+    font-size: $text-lg;
+    color: $mist;
+    line-height: 1.7;
+    max-width: 480px;
+    margin-bottom: $space-8;
+  }
+
+  &__actions {
+    display: flex;
+    gap: $space-4;
+    flex-wrap: wrap;
+  }
+
+  &__deco {
+    position: relative;
+    height: 400px;
+
+    @media (max-width: $bp-md) {
+      display: none;
+    }
+  }
+
+  &__blob {
+    position: absolute;
+    border-radius: 50%;
+    opacity: 0.12;
+    animation: float 6s ease-in-out infinite;
+    animation-delay: calc(var(--i) * 0.8s);
+
+    $sizes: 280px, 180px, 120px, 200px, 80px, 150px;
+    $tops:  10%, 40%, 60%, 5%, 70%, 30%;
+    $lefts: 10%, 50%, 20%, 60%, 40%, 70%;
+    $colors: $accent, $surface, $mist, $accent-dim, $surface, $mist;
+
+    @for $i from 1 through 6 {
+      &:nth-child(#{$i}) {
+        width: nth($sizes, $i);
+        height: nth($sizes, $i);
+        top: nth($tops, $i);
+        left: nth($lefts, $i);
+        background: nth($colors, $i);
+      }
+    }
+  }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0) scale(1); }
+  50% { transform: translateY(-20px) scale(1.03); }
+}
+
+// SECTIONS
+.section {
+  &__title {
+    font-family: $font-display;
+    font-size: $text-2xl;
+    font-weight: 700;
+    color: $white;
+    margin-bottom: $space-8;
+  }
+
+  &__header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: $space-8;
+  }
+
+  &__more {
+    font-size: $text-sm;
+    font-weight: 600;
+    color: $accent;
+    transition: text-decoration $transition-fast;
+
+    &:hover { text-decoration: underline; }
+  }
+}
+
+.featured, .recent {
+  padding: $space-16 0;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: $space-6;
+
+  @media (max-width: $bp-lg) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  @media (max-width: $bp-sm) {
+    grid-template-columns: 1fr;
+  }
+}
+
+// CATEGORIES STRIP
+.cats {
+  padding: $space-16 0;
+  border-top: 1px solid rgba($mist, 0.08);
+
+  &__grid {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: $space-4;
+
+    @media (max-width: $bp-lg) { grid-template-columns: repeat(3, 1fr); }
+    @media (max-width: $bp-sm) { grid-template-columns: repeat(2, 1fr); }
+  }
+
+  &__item {
+    background: $card;
+    border: 1px solid rgba(var(--accent), 0.15);
+    border-radius: $radius-lg;
+    padding: $space-6 $space-4;
+    text-align: center;
+    transition: all $transition-normal;
+
+    &:hover {
+      transform: translateY(-3px);
+      border-color: var(--accent);
+      box-shadow: 0 8px 24px rgba(0,0,0,0.3);
+    }
+  }
+
+  &__name {
+    display: block;
+    font-weight: 600;
+    color: $white;
+    margin-bottom: $space-1;
+    font-size: $text-sm;
+  }
+
+  &__count {
+    display: block;
+    font-size: $text-xs;
+    color: $mist;
+  }
+}
