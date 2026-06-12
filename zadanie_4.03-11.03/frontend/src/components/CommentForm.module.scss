@@ -1,0 +1,94 @@
+@use '../styles/variables' as *;
+
+.wrap {
+  margin-top: $space-8;
+  padding: $space-8;
+  background: rgba($surface, 0.3);
+  border-radius: $radius-lg;
+  border: 1px solid rgba($mist, 0.1);
+}
+
+.title {
+  font-family: $font-display;
+  font-size: $text-xl;
+  font-weight: 700;
+  color: $white;
+  margin-bottom: $space-6;
+}
+
+.success {
+  padding: $space-3 $space-4;
+  background: rgba(#00c9a7, 0.15);
+  border: 1px solid rgba(#00c9a7, 0.3);
+  border-radius: $radius-md;
+  color: #00c9a7;
+  font-size: $text-sm;
+  margin-bottom: $space-4;
+}
+
+.error {
+  padding: $space-3 $space-4;
+  background: rgba($accent, 0.15);
+  border: 1px solid rgba($accent, 0.3);
+  border-radius: $radius-md;
+  color: $accent;
+  font-size: $text-sm;
+  margin-bottom: $space-4;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: $space-4;
+}
+
+.row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: $space-4;
+
+  @media (max-width: $bp-sm) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: $space-2;
+
+  label {
+    font-size: $text-sm;
+    font-weight: 500;
+    color: $mist;
+  }
+
+  input, textarea {
+    background: $card;
+    border: 1px solid rgba($mist, 0.2);
+    border-radius: $radius-md;
+    padding: $space-3 $space-4;
+    color: $light;
+    font-size: $text-sm;
+    font-family: $font-body;
+    outline: none;
+    transition: border-color $transition-fast;
+    resize: vertical;
+
+    &::placeholder { color: rgba($mist, 0.5); }
+
+    &:focus {
+      border-color: $accent;
+    }
+  }
+}
+
+.submit {
+  align-self: flex-start;
+
+  &:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    transform: none !important;
+  }
+}
